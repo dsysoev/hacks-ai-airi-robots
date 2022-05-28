@@ -1,10 +1,8 @@
 from math import sqrt
 from heapq import heappop, heappush
 
-import gym
 import numpy as np
 from pogema import GridConfig
-from pogema.animation import AnimationMonitor
 
 
 class Node:
@@ -53,6 +51,8 @@ class AStar:
                     h = calc_distance(n[0], self.goal[0], n[1], self.goal[1])
                     heappush(self.OPEN, Node(n, u.g + 1, h))
                     self.CLOSED[n] = (u.i, u.j)  # store information about the predecessor
+                    if goal == n:
+                        break
 
     def get_next_node(self):
         next_node = self.start  # if path not found, current start position is returned
@@ -92,7 +92,6 @@ class Model:
 
         actions = []
         for k in range(len(obs)):
-            # print('k', k)
             if positions_xy[k] == targets_xy[k]:  # don't waste time on the agents that have already reached their goals
                 actions.append(0)  # just add useless action to save the order and length of the actions
                 continue
