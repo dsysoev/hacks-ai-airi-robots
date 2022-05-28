@@ -104,7 +104,7 @@ class Model:
             if len(self.hist_positions) > self.num_hist_steps:
                 pos_xy_prev = self.hist_positions[0]
                 h_by_time = calc_distance(pos_xy_prev[k][0], positions_xy[k][0], pos_xy_prev[k][1], positions_xy[k][1])
-                if h_by_time <= 2.5 and np.random.rand() < self.epsilon:
+                if h_by_time <= 1. and np.random.rand() < self.epsilon:
                     # if agent moved short length for last self.num_hist_step
                     # select random action
                     action = np.random.randint(5)
