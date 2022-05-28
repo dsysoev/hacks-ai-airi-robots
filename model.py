@@ -28,7 +28,7 @@ class AStar:
     def __init__(self):
         self.start = (0, 0)
         self.goal = (0, 0)
-        self.max_steps = 10000  # due to the absence of information about the map size we need some other stop criterion
+        self.max_steps = 1000  # due to the absence of information about the map size we need some other stop criterion
         self.OPEN = list()
         self.CLOSED = dict()
         self.obstacles = set()
