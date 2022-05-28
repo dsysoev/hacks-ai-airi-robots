@@ -1,0 +1,6 @@
+pogema
+numpy
+pandas
+jupyterlab
+joblib
+tabulate
